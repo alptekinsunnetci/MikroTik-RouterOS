@@ -1,0 +1,12 @@
+/routing/filter/rule
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==::/8 && dst-len >= 8 ){ reject;}" comment="RFC 4291 IPv4-compatible, loopback, et al"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==0100::/64 && dst-len >= 64 ){ reject; }" comment="RFC 6666 Discard-Only"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==2001:2::/48 && dst-len >= 48 ){ reject; }" comment="RFC 5180 BMWG"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==2001:10::/28 && dst-len >= 28 ){ reject; }" comment="RFC 4843 ORCHID"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==2001:db8::/32 && dst-len >= 32 ){ reject; }" comment="RFC 3849 documentation"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==2002::/16 && dst-len >= 16 ){ reject; }" comment="RFC 7526 6to4 anycast relay"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==3ffe::/16 && dst-len >= 16){ reject; }" comment="RFC 3701 old 6bone"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==fc00::/7 && dst-len >=7 ){ reject; }" comment="RFC 4193 unique local unicast"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==fe80::/10 && dst-len >= 10){ reject; }" comment="RFC 4291 link local unicast"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==fec0::/10 && dst-len >= 10){ reject; }" comment="RFC 3879 old site local unicast"
+add chain="GENERIC_PREFIX_LIST" rule="if ( afi ipv6 && dst==ff00::/8 && dst-len >= 8) { reject; }" comment="RFC 4291 multicast"

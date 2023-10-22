@@ -1,0 +1,16 @@
+/routing/filter/rule
+
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==0.0.0.0/8 && dst-len >= 8 ){ reject; }" comment="RFC 1122 'this' network"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==10.0.0.0/8 && dst-len >= 8){ reject; }" comment="RFC 1918 private space"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==100.64.0.0/10 && dst-len >= 10){ reject; }" comment="RFC 6598 Carrier grade nat space"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==127.0.0.0/8 && dst-len >= 8){ rejecet; }" comment="RFC 1122 localhost"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==169.254.0.0/16 && dst-len >= 16){ reject; }" comment="RFC 3927 link local"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==172.16.0.0/12 && dst-len >= 12){ reject; }" comment="RFC 1918 private space"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==192.0.2.0/24 && dst-len >= 24){ reject; }" comment="RFC 5737 TEST-NET-1"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==192.88.99.0/24 && dst-len >= 24){ reject; }" comment="RFC 7526 6to4 anycast relay"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==192.168.0.0/16 && dst-len >= 16){ reject; }" comment="RFC 1918 private space"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==198.18.0.0/15 && dst-len >= 15){ reject; }" comment="RFC 2544 benchmarking"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==198.51.100.0/24 && dst-len >= 24){ reject; }" comment="RFC 5737 TEST-NET-2"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==203.0.113.0/24 && dst-len >= 24){ reject; }" comment="RFC 5737 TEST-NET-3"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==224.0.0.0/4 && dst-len >= 4){ reject; }" comment="multicast"
+add chain=GENERIC_PREFIX_LIST rule="if ( afi ipv4 && dst==240.0.0.0/4 && dst-len >= 4){ reject; }" comment="reserved"
